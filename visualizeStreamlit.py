@@ -23,7 +23,7 @@ st.video('https://youtu.be/72sz2zDQkqo')
 #st.audio(audio_file, format="audio/wav", start_time=0)
 
 # Plotting area chart
-data = pd.read_csv("/Users/sankalpbhatia/Desktop/mainAudioCode/compass_ceo_cnbc_visualise.csv")
+data = pd.read_csv("compass_ceo_cnbc_visualise.csv")
 later_data = data
 data = data.reset_index(drop=True)
 data = data.set_index("Sentence")

@@ -15,14 +15,34 @@ with st.expander("See Explanation"):
 st.subheader("Analyzing Compass CEO - Robert Reffkin's Tonal Sentiment")
 st.caption("The audio analyzed was released by CNBC after Robert Reffkin layed off his employs for the 3rd time")
 
-# Displaying Video
+# Displaying YouTube Video
 st.video('https://youtu.be/72sz2zDQkqo') 
+#st.audio(audio_file, format="audio/wav", start_time=0)
 
 # Plotting area chart
 data = pd.read_csv("compass_ceo_cnbc_visualise.csv")
 later_data = data
 data = data.reset_index(drop=True)
 data = data.set_index("Sentence")
+
+# Define options for dropdown menu
+options = ['Sentence with highest conviction about future POSTIVE performance', 'Sentence with conviction about future NEGATIVE performance']
+
+# Create dropdown menu and get user's selection
+option = st.selectbox('Select an option', options)
+
+# Find sentence with highest tonal score
+if option == options[0]:
+    max_sentence = later_data.loc[later_data['Robert Reffkin'].idxmax(), 'Sentence']
+    st.subheader(f' **_:green["{max_sentence}"]_** ')
+# Find sentence with lowest tonal score
+elif option == options[1]:
+    min_sentence = later_data.loc[later_data['Robert Reffkin'].idxmin(), 'Sentence']
+    st.subheader(f' **_:red["{min_sentence}"]_** ')
+
+# Show default message if no option is selected
+else:
+    st.write("Please select an option")
 
 #data = data.fillna(0)
 
@@ -63,22 +83,3 @@ diff = (data['Robert Reffkin'].mean() - data['Interviewer 1'].mean()) / 2
 st.bar_chart(data['Robert Reffkin'])
 
 ############################################################################
-# Define options for dropdown menu
-options = ['Sentence with highest tonal score', 'Sentence with lowest tonal score']
-
-# Create dropdown menu and get user's selection
-option = st.selectbox('Select an option', options)
-
-# Find sentence with highest tonal score
-if option == options[0]:
-    max_sentence = later_data.loc[later_data['Robert Reffkin'].idxmax(), 'Sentence']
-    st.subheader(f' **_:green["{max_sentence}"]_** ')
-# Find sentence with lowest tonal score
-elif option == options[1]:
-    min_sentence = later_data.loc[later_data['Robert Reffkin'].idxmin(), 'Sentence']
-    st.subheader(f' **_:red["{min_sentence}"]_** ')
-
-# Show default message if no option is selected
-else:
-    st.write("Please select an option")
-

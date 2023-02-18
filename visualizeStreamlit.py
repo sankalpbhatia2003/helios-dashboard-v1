@@ -1,9 +1,5 @@
 import streamlit as st
-import plotly.figure_factory as ff3
 import matplotlib.pyplot as plt
-from matplotlib.colors import LinearSegmentedColormap
-import plotly.express as px
-import time
 import altair as alt
 import pandas as pd
 import numpy as np

@@ -8,7 +8,11 @@ st.title("Tonal Sentiment Analysis")
 
 st.subheader("What is Tonal Analysis?")
 with st.expander("See Explanation"):
-    st.write("")
+    st.write("""Hi there! A Tonal Sentiment score is a way to measure how a person's voice sounds when they're speaking, and whether it sounds positive, negative, or neutral.
+When we communicate with other people, we use both our words and our tone of voice to convey meaning. Sometimes we might say something that sounds nice, but if our tone of voice is angry or sarcastic, the person we're talking to might think we're actually being mean.
+That's why it's important to measure both the tone of voice and the text sentiment together. If we only look at the words someone is saying, we might miss important clues about how they're really feeling. But if we also pay attention to their tone of voice, we can get a better sense of their emotions and intentions.
+For example, imagine your friend says "I'm fine" when you ask them how they're doing. If they say it with a cheerful tone of voice, you might think they're actually doing great. But if they say it with a sad or angry tone of voice, you might realize that they're actually not doing so well.
+So, by measuring both the tone of voice and the text sentiment together, we can better understand what someone is really trying to say.""")
 
 #st.write("You might have heard of text analysis? It is the process of analysing texts from a document. But texts can be highly deceivable. Simply a text isn't enough to understand what the speaker is trying to say. That is where Tonal Sentiment Analysis comes into the picture. Tonal Analysis is defined as using the speakers' various voice features such as loudness, pitch, frequency, etc., and quantifying them to retrieve insights which the speaker would exclusivley have. Tonal Analysis has a wide use case but we'll be focussing on how it can generate values that can give us an insight about what the company executives know about their company that others do not.")
 

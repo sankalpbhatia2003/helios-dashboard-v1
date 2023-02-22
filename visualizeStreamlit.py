@@ -15,16 +15,13 @@ with st.expander("See Explanation"):
 st.subheader("Analyzing Compass CEO - Robert Reffkin's Tonal Sentiment")
 st.caption("The audio analyzed was released by CNBC after Robert Reffkin layed off his employs for the 3rd time")
 
-# Displaying audio file
-audio_file = open('/Users/sankalpbhatia/Desktop/mainAudioCode/compass_ceo_cnbc.mp3', 'rb')
-audio_bytes = audio_file.read()
 emotion = 'Disgust'
 
 st.video('https://youtu.be/72sz2zDQkqo') 
 #st.audio(audio_file, format="audio/wav", start_time=0)
 
 # Plotting area chart
-data = pd.read_csv("/Users/sankalpbhatia/Desktop/mainAudioCode/compass_ceo_cnbc_visualise.csv")
+data = pd.read_csv("compass_ceo_cnbc_visualise.csv")
 later_data = data
 data = data.reset_index(drop=True)
 data = data.set_index("Sentence")

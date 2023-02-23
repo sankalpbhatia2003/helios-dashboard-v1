@@ -69,7 +69,7 @@ cmap = LinearSegmentedColormap.from_list('RedBlue', ['#FF0000', '#0000FF'])
 x = np.linspace(-5, 5, num=100)
 
 # Set the value to indicate with a vertical line
-val = -4.01
+val = data['Robert Reffkin'].mean()
 
 # Find the index of the closest value to `val` in the x-axis array
 idx = np.abs(x - val).argmin()

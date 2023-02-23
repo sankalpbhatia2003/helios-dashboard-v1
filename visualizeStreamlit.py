@@ -18,7 +18,7 @@ So, by measuring both the tone of voice and the text sentiment together, we can 
 #st.write("You might have heard of text analysis? It is the process of analysing texts from a document. But texts can be highly deceivable. Simply a text isn't enough to understand what the speaker is trying to say. That is where Tonal Sentiment Analysis comes into the picture. Tonal Analysis is defined as using the speakers' various voice features such as loudness, pitch, frequency, etc., and quantifying them to retrieve insights which the speaker would exclusivley have. Tonal Analysis has a wide use case but we'll be focussing on how it can generate values that can give us an insight about what the company executives know about their company that others do not.")
 
 st.subheader("Analyzing Compass CEO - Robert Reffkin's Tonal Sentiment")
-st.caption("The audio analyzed was released by CNBC after Robert Reffkin layed off his employs for the 3rd time")
+st.caption("The audio analyzed was released by CNBC Television on 9th Jan 2023 after Robert Reffkin layed off his employs for the 3rd time")
 
 emotion = 'Disgust'
 

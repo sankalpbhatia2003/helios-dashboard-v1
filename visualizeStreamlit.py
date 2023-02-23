@@ -1,5 +1,6 @@
 import streamlit as st
 import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
 import altair as alt
 import pandas as pd
 import numpy as np
@@ -61,31 +62,40 @@ col1.metric("Minimum Tonal Score", value=round(data['Robert Reffkin'].min(), 4),
 
 st.subheader("Robert Reffkin's value on our Tonal Sentiment Scale")
 ################################################################
-# Define the values for the likert scale
-likert_values = np.arange(-5, 6)
+# Define the color gradient
+cmap = LinearSegmentedColormap.from_list('RedBlue', ['#FF0000', '#0000FF'])
 
-# Define the color scale for the likert scale
-color_scale = alt.Scale(domain=likert_values,
-                        range=["#FF0000", "#FF3333", "#FF6666", "#FF9999", "#FFCCCC",
-                               "#EBEBEB", "#99CCFF", "#66A3FF", "#3380FF", "#004DFF"])
+# Define the x-axis values
+x = np.linspace(-5, 5, num=100)
 
-# Create the chart
-chart = alt.Chart(pd.DataFrame({"tonal_values": likert_values})).mark_bar().encode(
-    #x=alt.X("count()", title="Number of Responses"),
-    y=alt.Y("tonal_values:O", title="Tonal Sentiment", axis=alt.Axis(labelAngle=0, ticks=False)),
-    color=alt.condition(
-        alt.datum.tonal_values == round(data['Robert Reffkin'].mean(), 0),
-        alt.value("grey"),
-        alt.Color('tonal_values:Q', scale=color_scale, legend=None)
-    )
-).properties(height=200, width=500)
+# Set the value to indicate with a vertical line
+val = -4.01
 
-# Display the chart in Streamlit
-st.altair_chart(chart, use_container_width=True)
+# Find the index of the closest value to `val` in the x-axis array
+idx = np.abs(x - val).argmin()
 
+# Create the plot
+fig, ax = plt.subplots(figsize=(10,0.5))
+ax.axvline(x=x[idx], color='black', lw=2)
+ax.imshow(np.array([x]), aspect='auto', cmap=cmap, extent=[-5, 5, -1, 1])
+ax.set_xlim([-5, 5])
+ax.set_ylim([-1, 1])
+ax.set_xticks(np.arange(-5, 6, 1))
+ax.set_yticks([])
+
+ax.set_facecolor('black')
+ax.spines['bottom'].set_color('black')
+ax.spines['left'].set_color('black')
+
+ax.set_xlabel('Tonal Sentiment Score')
+
+# Display the plot in the Streamlit app
+st.pyplot(fig)
+################################################################
 st.subheader("Tonal Sentiment behind each of his sentences")
 
 # Plotting metrics
 diff = (data['Robert Reffkin'].mean() - data['Interviewer 1'].mean()) / 2
 
 st.bar_chart(data['Robert Reffkin'])
+################################################################

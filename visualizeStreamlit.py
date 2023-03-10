@@ -55,7 +55,7 @@ with st.expander("ℹ️ Information about the Emotion Classifier"):
     st.info("""The Convolutional Neural Network (CNN) Speech Emotion Classifier model was built to classify emotions from audio files. The model is trained on the RAVDESS dataset, "The Ryerson Audio-Visual Database of Emotional Speech and Song" by Livingstone & Russo, which is licensed under CC BY-NA-SC 4.0. RAVDESS contains 7,356 files that includes 24 professional actors (12 female, 12 male), vocalizing two lexically-matched statements in a North American accent.
 The purpose of this model is to classify emotions majorly into 8 emotions: neutral, calm, happy, sad, angry, fearful, surprise, and disgust with a current accuracy of 64% The model also includes the classification of the speakers’ gender. This machine learning model was developed to accompany and enhance the insights generated from Helios’ Tonal Sentiment Data. """)
     
-st.subheader("Overall Audio Emotion: _:orange[{}]_ {}".format(emotion, '🤨'))
+st.subheader("Overall Audio Emotion: _:orange[{}]_ {}".format(emotion))
 ################################################################
 #data = data.fillna(0)
 
